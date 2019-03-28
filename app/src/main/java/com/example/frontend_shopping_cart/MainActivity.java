@@ -21,15 +21,20 @@ public class MainActivity extends AppCompatActivity {
         shopButton = findViewById(R.id.button_shop);
         supplierButton = findViewById(R.id.button_suppliers);
 
-        findViewById(R.id.button_suppliers).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button_shop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,Product.class);
-                startActivity(intent);
+               openActivity2();
+
             }
         });
 
 
+
+    }
+    public void openActivity2(){
+        Intent i = new Intent(this, shoppingExperience.class);
+        startActivity(i);
 
     }
 }
