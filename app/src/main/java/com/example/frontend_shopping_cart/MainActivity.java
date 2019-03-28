@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button supplierButton, shopButton;
+    Button  shopButton;
     Context context;
 
 
@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
         context = this;
         shopButton = findViewById(R.id.button_shop);
-        supplierButton = findViewById(R.id.button_suppliers);
 
         findViewById(R.id.button_shop).setOnClickListener(new View.OnClickListener() {
             @Override
