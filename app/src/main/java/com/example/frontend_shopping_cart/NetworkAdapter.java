@@ -11,7 +11,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class NetworkAdapter {
+public class NetworkAdapter
+{
     public static final String GET = "GET";
     public static final String POST = "POST";
     public static final String PUT = "PUT";
@@ -23,7 +24,8 @@ public class NetworkAdapter {
         void returnResult(Boolean success, String result);
     }
 
-    public static void httpRequest(final String stringUrl, final String requestType, final String jsonBody, final NetworkCallback callback) {
+    public static void httpRequest(final String stringUrl, final String requestType, final String jsonBody, final NetworkCallback callback)
+    {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -39,9 +41,11 @@ public class NetworkAdapter {
                     connection.setRequestMethod(requestType);
                     connection.setRequestProperty("Content-Type", "application/json");
 
-                    if (requestType.equals(GET) || requestType.equals(DELETE)) {
+                    if (requestType.equals(GET) || requestType.equals(DELETE))
+                    {
                         connection.connect();
-                    } else if (requestType.equals(POST) || requestType.equals(PUT)) {
+                    } else if (requestType.equals(POST) || requestType.equals(PUT))
+                    {
                         if (jsonBody != null) {
                             OutputStream outputStream = connection.getOutputStream();
                             outputStream.write(jsonBody.getBytes());
@@ -49,7 +53,8 @@ public class NetworkAdapter {
                         }
                     }
 
-                    if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    if (connection.getResponseCode() == HttpURLConnection.HTTP_OK)
+                    {
                         stream = connection.getInputStream();
                         if (stream != null) {
                             BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
@@ -63,7 +68,8 @@ public class NetworkAdapter {
                         }
                     }
 
-                } catch (MalformedURLException e) {
+                } catch (MalformedURLException e)
+                {
                     e.printStackTrace();
                     result = e.getMessage();
                 } catch (IOException e) {
